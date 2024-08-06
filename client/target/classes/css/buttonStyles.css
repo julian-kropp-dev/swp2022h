@@ -1,0 +1,30 @@
+.lobby__button--ready {
+  -fx-background-color: #D80100;
+  -fx-font-weight: bold;
+  -fx-font-size: 18px;
+  -fx-text-fill: #FFFFFF;
+  -fx-pref-width: 150px;
+  -fx-pref-height: 40px;
+  -fx-border-width: 4px;
+  -fx-border-color: #FFFB54;
+  -fx-border-radius: 4;
+  -fx-background-insets: 4;
+}
+
+.lobby__button--leave,
+.lobby__button--start {
+  -fx-font-weight: bold;
+  -fx-font-size: 18px;
+  -fx-text-fill: #FFFFFF;
+  -fx-pref-width: 150px;
+  -fx-pref-height: 40px;
+  -fx-background-insets: 4;
+}
+
+.lobby__button--leave {
+  -fx-background-color: #737373;
+}
+
+.lobby__button--start {
+  -fx-background-color: #BABFB8;
+}

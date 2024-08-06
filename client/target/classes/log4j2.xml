@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <CustomLevels>
+    <CustomLevel name="SUCCESS" intLevel="450"/>
+    <CustomLevel name="CHAT" intLevel="550"/>
+    <CustomLevel name="CONNECTIONS" intLevel="425"/>
+  </CustomLevels>
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <!-- warning %l needs many resources, remove in case of problems -->
+      <PatternLayout
+        pattern="%d{HH:mm:ss.SSS} [%t] %highlight{%-5level}{FATAL=bg_red, ERROR=bg_red, WARN=yellow, INFO=green DEBUG=cyan, TRACE=blue} %l - %highlight{%replace{%msg}{\r?\n}{↵}%n}{FATAL=red, ERROR=red, WARN=yellow, INFO=green DEBUG=cyan, TRACE=blue}"
+        disableAnsi="false"/>
+    </Console>
+    <File name="logFile" fileName="clientLog.log" append="false" immediateFlush="true">
+      <PatternLayout>
+        <Pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %m%n</Pattern>
+      </PatternLayout>
+    </File>
+  </Appenders>
+  <Loggers>
+    <Root level="debug">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="logFile" level="debug"/>
+    </Root>
+    <Logger name="io.netty" level="warn" additivity="false">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="logFile" level="debug"/>
+    </Logger>
+  </Loggers>
+</Configuration>

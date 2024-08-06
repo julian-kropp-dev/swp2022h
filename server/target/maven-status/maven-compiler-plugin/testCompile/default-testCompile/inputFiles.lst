@@ -1,0 +1,15 @@
+/Users/julian/Desktop/swp2022h/server/src/test/java/de/uol/swp/server/usermanagement/store/MySQLUserStoreTest.java
+/Users/julian/Desktop/swp2022h/server/src/test/java/de/uol/swp/server/game/GameManagementTest.java
+/Users/julian/Desktop/swp2022h/server/src/test/java/de/uol/swp/server/chat/ChatServiceTest.java
+/Users/julian/Desktop/swp2022h/server/src/test/java/de/uol/swp/server/usermanagement/UserManagementTest.java
+/Users/julian/Desktop/swp2022h/server/src/test/java/de/uol/swp/server/game/GameTimerServiceTest.java
+/Users/julian/Desktop/swp2022h/server/src/test/java/de/uol/swp/server/game/CardTest.java
+/Users/julian/Desktop/swp2022h/server/src/test/java/de/uol/swp/server/lobby/LobbyManagementTest.java
+/Users/julian/Desktop/swp2022h/server/src/test/java/de/uol/swp/server/game/GameLogicTest.java
+/Users/julian/Desktop/swp2022h/server/src/test/java/de/uol/swp/server/usermanagement/store/MainMemoryBasedUserStoreTest.java
+/Users/julian/Desktop/swp2022h/server/src/test/java/de/uol/swp/server/lobby/generator/NameGeneratorTest.java
+/Users/julian/Desktop/swp2022h/server/src/test/java/de/uol/swp/server/usermanagement/UserServiceTest.java
+/Users/julian/Desktop/swp2022h/server/src/test/java/de/uol/swp/server/lobby/LobbyServiceTest.java
+/Users/julian/Desktop/swp2022h/server/src/test/java/de/uol/swp/server/usermanagement/AuthenticationServiceTest.java
+/Users/julian/Desktop/swp2022h/server/src/test/java/de/uol/swp/server/game/GameCardValidationTest.java
+/Users/julian/Desktop/swp2022h/server/src/test/java/de/uol/swp/server/game/GameLogicServiceTest.java

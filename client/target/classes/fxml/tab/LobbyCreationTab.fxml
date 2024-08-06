@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<Tab xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17"
+  fx:controller="de.uol.swp.client.lobby.LobbyCreationPresenter" text="Lobby Erstellen"
+  fx:id="lobbyCreationTab">
+  <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+    <GridPane fx:id="mainPane" maxHeight="800.0" maxWidth="1000.0" prefHeight="600.0" prefWidth="800.0" styleClass="anchor" stylesheets="@../../css/LobbyCreationView.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
+        <ColumnConstraints hgrow="ALWAYS" maxWidth="800.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="5.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="130.0" prefHeight="130.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" vgrow="SOMETIMES" />
+        <RowConstraints vgrow="SOMETIMES" />
+        <RowConstraints vgrow="SOMETIMES" />
+        <RowConstraints prefHeight="0.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+      <children>
+        <VBox GridPane.columnIndex="2" GridPane.rowIndex="2">
+          <GridPane.margin>
+            <Insets right="5.0" top="5.0" />
+          </GridPane.margin>
+          <children>
+            <FlowPane alignment="CENTER_LEFT" prefWrapLength="250.0" styleClass="lobby__image--plate">
+              <children>
+                <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="256.0" prefWidth="262.0">
+                  <children>
+                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lobby__option--text" text="KI Anzahl" wrappingWidth="172.0" />
+                    <HBox>
+                      <children>
+                        <Slider fx:id="aiPlayerCount" majorTickUnit="1.0" max="6.0" minorTickCount="0" onMouseReleased="#onAiPlayerCountSliderChanged" prefHeight="52.0" prefWidth="218.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" styleClass="lobby__option--slider" />
+                        <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#onAiConfigPress" prefHeight="42.0" prefWidth="30.0" styleClass="lobby__button--ai" />
+                      </children>
+                    </HBox>
+                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lobby__option--text" text="Spieleranzahl" wrappingWidth="229.199951171875" />
+                    <Slider fx:id="slot" majorTickUnit="1.0" max="8.0" min="1.0" minorTickCount="0" onMouseReleased="#onSliderChanged" prefHeight="38.0" prefWidth="110.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" styleClass="lobby__option--slider" value="2.0" />
+                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lobby__option--text" text="Zugzeit" wrappingWidth="120.0" />
+                    <ChoiceBox fx:id="turnTime" prefHeight="15.0" prefWidth="112.0" styleClass="lobby__option--choicebox" />
+                  </children>
+                  <padding>
+                    <Insets top="5.0" />
+                  </padding>
+                  <opaqueInsets>
+                    <Insets />
+                  </opaqueInsets>
+                  <FlowPane.margin>
+                    <Insets right="40.0" />
+                  </FlowPane.margin>
+                </VBox>
+                <GridPane>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" />
+                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="50.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                  <children>
+                    <CheckBox fx:id="privateLobby" mnemonicParsing="false" prefHeight="36.0" prefWidth="30.0" styleClass="lobby__option--checkbox" GridPane.columnIndex="1">
+                      <GridPane.margin>
+                        <Insets bottom="7.0" top="7.0" />
+                      </GridPane.margin>
+                    </CheckBox>
+                    <CheckBox fx:id="spectatorMode" selected="true" mnemonicParsing="false" prefHeight="36.0" prefWidth="30.0" styleClass="lobby__option--checkbox" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                      <GridPane.margin>
+                        <Insets bottom="7.0" top="7.0" />
+                      </GridPane.margin>
+                    </CheckBox>
+                    <CheckBox fx:id="activeLasers" mnemonicParsing="false" prefHeight="36.0" prefWidth="30.0" styleClass="lobby__option--checkbox" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                      <GridPane.margin>
+                        <Insets bottom="7.0" top="7.0" />
+                      </GridPane.margin>
+                    </CheckBox>
+                    <CheckBox fx:id="activeWeakDuplicate" mnemonicParsing="false" prefHeight="36.0" prefWidth="30.0" styleClass="lobby__option--checkbox" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                      <GridPane.margin>
+                        <Insets bottom="7.0" top="7.0" />
+                      </GridPane.margin>
+                    </CheckBox>
+                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lobby__option--text" text="Private Lobby" wrappingWidth="292.60009765625">
+                      <GridPane.margin>
+                        <Insets />
+                      </GridPane.margin>
+                    </Text>
+                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lobby__option--text" text="Zuschauermodus an" wrappingWidth="320.7999267578125" GridPane.rowIndex="1" />
+                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lobby__option--text" text="Robolaser aktivieren" wrappingWidth="320.7999267578125" GridPane.rowIndex="3" />
+                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lobby__option--text" text="Duplikat schwächen" wrappingWidth="313.5999755859375" GridPane.rowIndex="5" />
+                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lobby__option--text" text="Robo abschalten" wrappingWidth="319.7999267578125" GridPane.rowIndex="4" />
+                    <CheckBox fx:id="switchOffRoboter" mnemonicParsing="false" prefHeight="36.0" prefWidth="30.0" styleClass="lobby__option--checkbox" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lobby__option--text" text="Spielvarianten" underline="true" wrappingWidth="291.7999267578125" GridPane.rowIndex="2" />
+                  </children>
+                </GridPane>
+              </children>
+              <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+              </padding>
+            </FlowPane>
+          </children>
+        </VBox>
+        <Button alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#onCreateLobby" styleClass="lobby__button--create" text="Erstellen" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.rowSpan="2" />
+        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+          <left>
+            <TextField fx:id="lobbyTitle" promptText="Lobby Titel" BorderPane.alignment="CENTER" />
+          </left>
+          <right>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="110.0" styleClass="lobby__image--avatar" BorderPane.alignment="CENTER">
+              <children>
+                <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="2.5" AnchorPane.topAnchor="2.5">
+                  <Image url="@../../appicon/icon_small.png" />
+                </ImageView>
+              </children>
+            </AnchorPane>
+          </right>
+        </BorderPane>
+
+      </children>
+    </GridPane>
+    <AnchorPane fx:id="aiPane" disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+            <HBox alignment="CENTER">
+              <children>
+                <AnchorPane nodeOrientation="LEFT_TO_RIGHT" stylesheets="@../../css/LobbyCreationView.css">
+                  <children>
+                    <VBox alignment="CENTER" styleClass="ai__option--vpane">
+                      <children>
+                        <HBox alignment="CENTER">
+                          <children>
+                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lobby__option--text" text="KI Schwierigkeitsstufen" />
+                            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onAiConfigExitPress" prefHeight="25.0" prefWidth="25.0" styleClass="lobby__button--close" textAlignment="RIGHT" />
+                          </children>
+                          <VBox.margin>
+                            <Insets top="4.0" />
+                          </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="hbox0" alignment="CENTER" prefHeight="1.0" prefWidth="486.0" spacing="20.0">
+                          <children>
+                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lobby__option--text" text="Alle" wrappingWidth="80.0" />
+                            <Slider fx:id="aiMain" blockIncrement="1.0" majorTickUnit="1.0" max="4.0" min="1.0" minorTickCount="0" onMouseReleased="#onAiMainSliderChanged" prefHeight="33.0" prefWidth="347.0" showTickLabels="true" snapToTicks="true" value="1.0" />
+                          </children>
+                        </HBox>
+                        <HBox fx:id="hbox1" alignment="CENTER" layoutX="10.0" layoutY="41.0" prefHeight="1.0" prefWidth="486.0" spacing="20.0">
+                          <children>
+                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lobby__option--text" text="Ki 1" wrappingWidth="80.0" />
+                            <Slider fx:id="ai1" blockIncrement="1.0" majorTickUnit="1.0" max="4.0" min="1.0" minorTickCount="0" prefHeight="33.0" prefWidth="347.0" snapToTicks="true" value="1.0" />
+                          </children>
+                        </HBox>
+                        <HBox fx:id="hbox2" alignment="CENTER" layoutX="10.0" layoutY="41.0" prefHeight="1.0" prefWidth="486.0" spacing="20.0">
+                          <children>
+                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lobby__option--text" text="Ki 2" wrappingWidth="80.0" />
+                            <Slider fx:id="ai2" blockIncrement="1.0" majorTickUnit="1.0" max="4.0" min="1.0" minorTickCount="0" prefHeight="33.0" prefWidth="347.0" snapToTicks="true" value="1.0" />
+                          </children>
+                        </HBox>
+                        <HBox fx:id="hbox3" alignment="CENTER" layoutX="10.0" layoutY="112.0" prefHeight="1.0" prefWidth="486.0" spacing="20.0">
+                          <children>
+                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lobby__option--text" text="Ki 3" wrappingWidth="80.0" />
+                            <Slider fx:id="ai3" blockIncrement="1.0" majorTickUnit="1.0" max="4.0" min="1.0" minorTickCount="0" prefHeight="33.0" prefWidth="347.0" snapToTicks="true" value="1.0" />
+                          </children>
+                        </HBox>
+                        <HBox fx:id="hbox4" alignment="CENTER" layoutX="10.0" layoutY="147.0" prefHeight="1.0" prefWidth="486.0" spacing="20.0">
+                          <children>
+                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lobby__option--text" text="Ki 4" wrappingWidth="80.0" />
+                            <Slider fx:id="ai4" blockIncrement="1.0" majorTickUnit="1.0" max="4.0" min="1.0" minorTickCount="0" prefHeight="33.0" prefWidth="347.0" snapToTicks="true" value="1.0" />
+                          </children>
+                        </HBox>
+                        <HBox fx:id="hbox5" alignment="CENTER" layoutX="10.0" layoutY="147.0" prefHeight="1.0" prefWidth="486.0" spacing="20.0">
+                          <children>
+                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lobby__option--text" text="Ki 5" wrappingWidth="80.0" />
+                            <Slider fx:id="ai5" blockIncrement="1.0" majorTickUnit="1.0" max="4.0" min="1.0" minorTickCount="0" prefHeight="33.0" prefWidth="347.0" snapToTicks="true" value="1.0" />
+                          </children>
+                        </HBox>
+                        <HBox fx:id="hbox6" alignment="CENTER" layoutX="10.0" layoutY="217.0" prefHeight="1.0" prefWidth="486.0" spacing="20.0">
+                          <children>
+                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="lobby__option--text" text="Ki 6" wrappingWidth="80.0" />
+                            <Slider fx:id="ai6" blockIncrement="1.0" majorTickUnit="1.0" max="4.0" min="1.0" minorTickCount="0" prefHeight="33.0" prefWidth="347.0" snapToTicks="true" value="1.0" />
+                          </children>
+                        </HBox>
+                      </children>
+                    </VBox>
+                  </children>
+                </AnchorPane>
+              </children>
+            </HBox>
+          </children>
+        </VBox>
+      </children>
+    </AnchorPane>
+
+
+  </AnchorPane>
+</Tab>

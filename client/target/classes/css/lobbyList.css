@@ -1,0 +1,103 @@
+.anchor {
+  -fx-background-image: url("../images/backgrounds/background_pane.png");
+  -fx-background-size: 100px;
+  -fx-background-repeat: repeat;
+}
+
+.lobby__option--scroll .viewport{
+  -fx-background-color: transparent;
+}
+
+.scroll-pane {
+  -fx-background-color:transparent;
+}
+
+.lobby__image--avatar {
+  -fx-background-color: rgba(220, 220, 220, 0.44);
+  -fx-border-width: 3px;
+  -fx-border-color: #3D2314, #AA7E51;
+  -fx-border-style: solid inside, solid outside;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.7, 0.0, 0.0);
+}
+
+.lobby__button--leave {
+  -fx-font-weight: bold;
+  -fx-font-size: 18px;
+  -fx-text-fill: #FFFFFF;
+  -fx-background-color: #7E7E7E;
+  -fx-border-width: 4px;
+  -fx-border-color: white;
+  -fx-border-radius: 0;
+}
+
+.lobby__button--leave:hover {
+  -fx-background-color: derive(#7E7E7E, -20%);
+}
+
+.lobby__option--text {
+  -fx-text-fill: #FFFFFF;
+  -fx-font-size: 20pt;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0.7, 0.0, 0.0);
+}
+
+.text-field {
+  -fx-background-color: #737373;
+  -fx-border-width: 3px;
+  -fx-border-radius: 0px;
+  -fx-border-color: #FFFB54;
+  -fx-text-fill: white;
+  -fx-font-size: 15px;
+}
+
+.lobby__listview--option {
+  -fx-background-color: #7E7E7E;
+  -fx-border-color: #FFFB54;
+  -fx-border-width: 3px;
+  -fx-border-radius: 0px;
+  -fx-text-fill: white;
+}
+
+.lobby__listview--option {
+  -fx-background-color: #7E7E7E;
+  -fx-border-color: #FFFB54;
+  -fx-border-width: 3px;
+  -fx-border-radius: 0px;
+}
+
+.lobby__listview--option:odd {
+  -fx-background-color: #484848;
+}
+
+.lobby__listview--option:even {
+  -fx-background-color: #484848;
+}
+
+.table-view {
+  -fx-background-color: rgba(0, 0, 0, 0.27);
+}
+
+.table-view .column-header-background .label {
+  -fx-text-fill: white;
+}
+
+.table-view .column-header {
+  -fx-background-color: #2E2D28;
+}
+
+.table-view .table-cell{
+  -fx-text-fill: white;
+}
+
+.table-row-cell{
+  -fx-background-color: -fx-table-cell-border-color, rgba(46, 45, 40, 0.7);
+}
+
+.table-row-cell:odd{
+  -fx-background-color: -fx-table-cell-border-color, rgba(119, 119, 119, 0.7);
+}
+
+.table-row-cell:selected {
+  -fx-background-color: #009758;
+}
+
+

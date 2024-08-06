@@ -1,0 +1,27 @@
+.anchor {
+  -fx-background-image: url("../images/backgrounds/background.png");
+  -fx-background-size: 100px;
+  -fx-background-repeat: repeat;
+}
+
+.winner--text, .winner2--text {
+  -fx-text-fill: #FFFFFF;
+  -fx-font-size: 20pt;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0.7, 0.0, 0.0);
+}
+.winner2--text {
+  -fx-text-fill: #ff4646;
+}
+
+.end__of__game--button {
+  -fx-background-color: #ffb700;
+  -fx-font-weight: bold;
+  -fx-font-size: 15px;
+  -fx-text-fill: #FFFFFF;
+  -fx-pref-width: 250px;
+  -fx-pref-height: 40px;
+  -fx-border-width: 4px;
+  -fx-border-color: #FFFB54;
+  -fx-border-radius: 4;
+  -fx-background-insets: 4;
+}

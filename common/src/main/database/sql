@@ -1,0 +1,25 @@
+CREATE TABLE robo_rally.User (
+    UserID int AUTO_INCREMENT NOT NULL,
+    Username varchar(50) unique NOT NULL,
+    Password CHAR(128) COLLATE utf8mb4_general_ci NOT NULL,
+    Mail varchar(100) NOT NULL,
+    AvatarId int,
+    LastLogin DATETIME,
+    check (AvatarId BETWEEN 1 AND 8),
+    PRIMARY KEY (UserID),
+    FOREIGN KEY (AvatarId) REFERENCES robo_rally.Avatar(AvatarId)
+);
+
+CREATE TABLE robo_rally.Avatar (
+    AvatarId int,
+    AvatarName varchar(20),
+    PRIMARY KEY (AvatarId)
+);
+
+CREATE TABLE robo_rally.Statistic (
+    UserID int,
+    placement int not null,
+    DateTime DATETIME,
+    PRIMARY KEY (UserID, DateTime),
+    FOREIGN KEY (UserID) REFERENCES robo_rally.User(UserID) ON DELETE CASCADE
+);

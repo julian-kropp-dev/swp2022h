@@ -1,0 +1,6 @@
+de/uol/swp/client/chat/ClientChatServiceTest.class
+de/uol/swp/client/lobby/LobbyServiceTest.class
+de/uol/swp/client/register/event/RegistrationErrorEventTest.class
+de/uol/swp/client/chat/SendChatMessageMessageDTOEventTest.class
+de/uol/swp/client/lobby/events/LobbyErrorEventTest.class
+de/uol/swp/client/user/UserServiceTest.class

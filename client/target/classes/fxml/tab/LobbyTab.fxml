@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.StackPane?>
+<Tab fx:id="lobbyTab" onClosed="#onClose" xmlns="http://javafx.com/javafx/17"
+  xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.uol.swp.client.lobby.LobbyPresenter">
+  <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+    AnchorPane.topAnchor="0.0">
+    <GridPane fx:id="mainGrid" maxHeight="800.0" maxWidth="1000.0" prefHeight="600.0"
+      prefWidth="800.0" styleClass="anchor" stylesheets="@../../css/LobbyView.css"
+      AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+      AnchorPane.topAnchor="0.0">
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="-Infinity"
+          prefWidth="300.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="-Infinity"
+          prefWidth="250.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="330.0" minWidth="-Infinity"
+          prefWidth="270.0"/>
+        <ColumnConstraints hgrow="SOMETIMES"/>
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="400.0" minHeight="300.0" prefHeight="300.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="400.0" minHeight="10.0" prefHeight="250.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="100.0" minHeight="-Infinity" prefHeight="80.0"
+          vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="50.0" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="250.0" minHeight="-Infinity" prefHeight="180.0"
+          vgrow="SOMETIMES"/>
+        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="70.0"
+          vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES"/>
+        <RowConstraints minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES"/>
+      </rowConstraints>
+      <children>
+        <ListView fx:id="userList" onMouseEntered="#onMouseEnteredTarget"
+          onMouseExited="#onMouseExitTarget" prefHeight="182.0" prefWidth="249.0"
+          styleClass="lobby__listview--player" GridPane.columnIndex="2" GridPane.rowIndex="5">
+          <opaqueInsets>
+            <Insets/>
+          </opaqueInsets>
+          <GridPane.margin>
+            <Insets left="5.0" right="5.0"/>
+          </GridPane.margin>
+        </ListView>
+        <VBox prefHeight="456.0" prefWidth="449.0" GridPane.columnIndex="3" GridPane.rowIndex="1"
+          GridPane.rowSpan="3">
+          <children>
+            <BorderPane prefHeight="134.0" prefWidth="443.0">
+              <right>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                  minWidth="-Infinity" prefHeight="110.0" prefWidth="110.0"
+                  styleClass="lobby__image--avatar" BorderPane.alignment="CENTER">
+                  <children>
+                    <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true"
+                      preserveRatio="true" AnchorPane.bottomAnchor="2.5" AnchorPane.leftAnchor="2.5"
+                      AnchorPane.rightAnchor="2.5" AnchorPane.topAnchor="2.5">
+                      <Image url="@../../appicon/icon_small.png"/>
+                    </ImageView>
+                  </children>
+                </AnchorPane>
+              </right>
+              <left>
+                <Label fx:id="lobbyTitleDisplay" prefHeight="99.0" prefWidth="178.0"
+                  styleClass="lobby__option--text" text="Lobby Name" wrapText="true"
+                  BorderPane.alignment="CENTER"/>
+              </left>
+            </BorderPane>
+            <GridPane fx:id="configPane" disable="true" prefHeight="293.0" prefWidth="446.0"
+              styleClass="lobby__image--plate">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" prefWidth="220.0"/>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity"
+                  minWidth="-Infinity" prefWidth="100.0"/>
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0"
+                  vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0"
+                  vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0"
+                  vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0"
+                  vgrow="SOMETIMES"/>
+              </rowConstraints>
+              <children>
+                <CheckBox fx:id="switchOffRoboter" mnemonicParsing="false"
+                  onAction="#checkBoxSwitchOffRoboter" prefHeight="40.0" prefWidth="40.0"
+                  selected="true" styleClass="lobby__option--checkbox" GridPane.columnIndex="1"
+                  GridPane.rowIndex="5">
+                  <padding>
+                    <Insets left="8.0"/>
+                  </padding>
+                </CheckBox>
+                <CheckBox fx:id="activeLasers" mnemonicParsing="false"
+                  onAction="#checkBoxActiveLasers" prefHeight="40.0" prefWidth="40.0"
+                  selected="true" styleClass="lobby__option--checkbox" GridPane.columnIndex="1"
+                  GridPane.rowIndex="4">
+                  <padding>
+                    <Insets left="8.0"/>
+                  </padding>
+                </CheckBox>
+                <TextField fx:id="changeLobbyTitle" prefHeight="26.0" prefWidth="335.0"
+                  promptText="Lobby Titel" GridPane.rowIndex="1"/>
+                <Button fx:id="lobbyTitleChangeButton" mnemonicParsing="false"
+                  onAction="#onLobbyTitleChange" styleClass="lobby__button--start" text="Ändern"
+                  GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <GridPane.margin>
+                    <Insets top="3.0"/>
+                  </GridPane.margin>
+                </Button>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                  styleClass="lobby__option--text" text="Robolaser aktivieren"
+                  wrappingWidth="329.54164123535156" GridPane.rowIndex="4"/>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                  styleClass="lobby__option--text" text="Robo abschalten"
+                  wrappingWidth="328.24998474121094" GridPane.rowIndex="5"/>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                  styleClass="lobby__option--text" text="Spielvarianten" underline="true"
+                  wrappingWidth="320.5078125" GridPane.rowIndex="3"/>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                  styleClass="lobby__option--text" text="Duplikat schwächen"
+                  wrappingWidth="330.24998474121094" GridPane.rowIndex="6"/>
+                <CheckBox fx:id="activeWeakDuplicate" mnemonicParsing="false"
+                  onAction="#checkBoxActiveWeakDuplicate" prefHeight="40.0" prefWidth="40.0"
+                  selected="true" styleClass="lobby__option--checkbox" GridPane.columnIndex="1"
+                  GridPane.rowIndex="6">
+                  <padding>
+                    <Insets left="8.0"/>
+                  </padding>
+                </CheckBox>
+              </children>
+              <VBox.margin>
+                <Insets/>
+              </VBox.margin>
+              <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+              </padding>
+            </GridPane>
+          </children>
+        </VBox>
+        <VBox fx:id="configBox" disable="true" maxWidth="-Infinity" minWidth="250.0"
+          prefHeight="284.0" prefWidth="300.0" styleClass="lobby__image--plate"
+          GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.rowSpan="3">
+          <children>
+            <Text fx:id="infoTextForAiPlayerCount" fill="WHITE" strokeType="OUTSIDE"
+              strokeWidth="0.0" styleClass="lobby__option--text" text="KI Anzahl"
+              wrappingWidth="204.60107421875"/>
+            <HBox>
+              <children>
+                <Slider fx:id="aiPlayerCount" majorTickUnit="1.0" max="6.0" minorTickCount="0"
+                  onMouseReleased="#onAiPlayerCountSliderChanged" prefHeight="52.0"
+                  prefWidth="247.0" showTickLabels="true" showTickMarks="true" snapToTicks="true"/>
+                <Button mnemonicParsing="false" onAction="#onAiConfigPress" prefHeight="38.0"
+                  prefWidth="42.0" styleClass="lobby__button--ai"/>
+              </children>
+            </HBox>
+            <Text fx:id="infoTextForSlot" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+              styleClass="lobby__option--text" text="Spieler Anzahl"
+              wrappingWidth="250.80109405517578"/>
+            <Slider fx:id="slot" majorTickUnit="1.0" max="8.0" min="1.0" minorTickCount="0"
+              onMouseReleased="#onSliderChanged" pickOnBounds="false" showTickLabels="true"
+              showTickMarks="true" snapToTicks="true" value="2.0"/>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+              styleClass="lobby__option--text" text="Runden Zeit"
+              wrappingWidth="228.08749389648438"/>
+            <ChoiceBox fx:id="turnTime" onAction="#onTurnTimeChange" prefHeight="15.0"
+              prefWidth="112.0" styleClass="lobby__option--choicebox"/>
+            <Button fx:id="btnStart" mnemonicParsing="false" onAction="#onStartSignal"
+              prefHeight="40.0" prefWidth="85.0" styleClass="lobby__button--start"
+              text="Spiel Start" visible="false">
+              <VBox.margin>
+                <Insets left="-4.0"/>
+              </VBox.margin>
+            </Button>
+          </children>
+          <GridPane.margin>
+            <Insets top="10.0"/>
+          </GridPane.margin>
+          <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+          </padding>
+        </VBox>
+        <VBox alignment="TOP_CENTER" prefHeight="582.0" prefWidth="254.0" GridPane.columnIndex="2"
+          GridPane.rowIndex="1">
+          <children>
+            <Text fx:id="robotName" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+              styleClass="lobby__option--text" text="Bob" textAlignment="CENTER"
+              wrappingWidth="194.03023147583008"/>
+            <HBox alignment="CENTER" prefHeight="266.0" prefWidth="254.0">
+              <children>
+                <Button fx:id="arrowLeft" mnemonicParsing="false" onAction="#onArrowLeft"
+                  prefHeight="367.0" prefWidth="35.0" styleClass="lobby__button--roboleft">
+                  <graphic>
+                    <SVGPath content="M10,16 10,0 0,8z"/>
+                  </graphic>
+                </Button>
+                <ImageView fx:id="robotImage" fitHeight="200.0" fitWidth="169.0" pickOnBounds="true"
+                  preserveRatio="true">
+                  <HBox.margin>
+                    <Insets left="5.0" right="5.0"/>
+                  </HBox.margin>
+                </ImageView>
+                <Button fx:id="arrowRight" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT"
+                  onAction="#onArrowRight" prefHeight="534.0" prefWidth="35.0"
+                  styleClass="lobby__button--roboright">
+                  <graphic>
+                    <SVGPath content="M10,16 10,0 0,8z"/>
+                  </graphic>
+                </Button>
+              </children>
+            </HBox>
+            <Button fx:id="robotSelect" onAction="#onSelect" prefHeight="26.0" prefWidth="96.0"
+              styleClass="lobby__button--select" text="Auswählen" textFill="WHITE"/>
+          </children>
+        </VBox>
+        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+          <children>
+            <Button fx:id="btnReady" mnemonicParsing="false" onAction="#onReadyButtonPressed"
+              prefHeight="40.0" prefWidth="85.0" styleClass="lobby__button--ready" text="Bereit?"
+              visible="false">
+              <HBox.margin>
+                <Insets top="10.0"/>
+              </HBox.margin>
+            </Button>
+          </children>
+        </HBox>
+        <HBox fx:id="spectatorProperties" prefHeight="100.0" prefWidth="250.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+          <children>
+            <Button fx:id="spectatorModeActive" onAction="#onSpectatorModeActive" mnemonicParsing="false"
+              prefHeight="40.0" prefWidth="170.0" styleClass="lobby__button--ready" text="Modus ändern"
+              visible="false">
+              <HBox.margin>
+                <Insets top="10.0"/>
+              </HBox.margin>
+            </Button>
+          </children>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2"
+          GridPane.rowIndex="6">
+          <children>
+            <Button id="backButton" mnemonicParsing="false" onAction="#onLeave" prefHeight="26.0"
+              prefWidth="108.0" styleClass="lobby__button--leave" text="Verlassen"/>
+            <Button fx:id="kickButton" mnemonicParsing="false" onAction="#kick"
+              styleClass="lobby__button--kick" text="Kicken"/>
+          </children>
+          <GridPane.margin>
+            <Insets right="5.0"/>
+          </GridPane.margin>
+        </HBox>
+        <ListView fx:id="lobbyChat" minWidth="250.0" styleClass="lobby__listview--chat"
+          GridPane.columnIndex="3" GridPane.rowIndex="4" GridPane.rowSpan="2"/>
+        <HBox alignment="CENTER" prefHeight="29.0" prefWidth="330.0" GridPane.columnIndex="3"
+          GridPane.rowIndex="6">
+          <children>
+            <TextField fx:id="messageFieldLobby" onAction="#onEnter" prefHeight="43.0"
+              prefWidth="216.0" promptText="Nachricht"/>
+            <Button minWidth="90.0" mnemonicParsing="false" onAction="#onSend" prefHeight="43.0"
+              prefWidth="102.0" styleClass="lobby__button--send" text="Senden">
+              <HBox.margin>
+                <Insets left="10.0"/>
+              </HBox.margin>
+            </Button>
+          </children>
+        </HBox>
+        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1"
+          GridPane.rowIndex="1" GridPane.rowSpan="2">
+          <children>
+            <Text fx:id="robotName1" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+              styleClass="lobby__option--text" text="Spielplan" textAlignment="CENTER"
+              wrappingWidth="214.03023147583008"/>
+            <Button mnemonicParsing="false" onAction="#onMapChange" styleClass="mapBuilder">
+              <graphic>
+                <ImageView fx:id="mapChangerImage" fitHeight="283.0" fitWidth="289.0"
+                  pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../../textures/floorplans/empty.jpeg"/>
+                  </image>
+                </ImageView>
+              </graphic>
+            </Button>
+          </children>
+          <GridPane.margin>
+            <Insets top="10.0"/>
+          </GridPane.margin>
+        </VBox>
+      </children>
+    </GridPane>
+
+    <AnchorPane fx:id="aiPane" disable="true" prefHeight="200.0" prefWidth="200.0" visible="false"
+      AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+      AnchorPane.topAnchor="0.0">
+      <children>
+        <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+            <HBox alignment="CENTER">
+              <children>
+                <AnchorPane nodeOrientation="LEFT_TO_RIGHT">
+                  <children>
+                    <VBox alignment="CENTER" styleClass="ai__option--vpane">
+                      <children>
+                        <HBox alignment="CENTER">
+                          <children>
+                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="lobby__option--text" text="KI Schwierigkeitsstufen"/>
+                            <Button mnemonicParsing="false" onAction="#onAiConfigExitPress"
+                              styleClass="lobby__button--close" textAlignment="RIGHT"/>
+                          </children>
+                          <VBox.margin>
+                            <Insets top="4.0"/>
+                          </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="hbox0" alignment="CENTER" prefHeight="1.0" prefWidth="486.0"
+                          spacing="20.0">
+                          <children>
+                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="lobby__option--text" text="Alle" wrappingWidth="80.0"/>
+                            <Slider fx:id="aiMain" blockIncrement="1.0" majorTickUnit="1.0"
+                              max="4.0" min="1.0" minorTickCount="0"
+                              onMouseReleased="#onAiMainSliderChanged" prefHeight="47.0"
+                              prefWidth="374.0" showTickLabels="true" snapToTicks="true"
+                              value="1.0"/>
+                          </children>
+                        </HBox>
+                        <HBox fx:id="hbox1" alignment="CENTER" layoutX="10.0" layoutY="41.0"
+                          prefHeight="1.0" prefWidth="486.0" spacing="20.0">
+                          <children>
+                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="lobby__option--text" text="Ki 1" wrappingWidth="80.0"/>
+                            <Slider fx:id="ai1" blockIncrement="1.0" majorTickUnit="1.0" max="4.0"
+                              min="1.0" minorTickCount="0" prefHeight="33.0" prefWidth="374.0"
+                              snapToTicks="true" value="1.0"/>
+                          </children>
+                        </HBox>
+                        <HBox fx:id="hbox2" alignment="CENTER" layoutX="10.0" layoutY="41.0"
+                          prefHeight="1.0" prefWidth="486.0" spacing="20.0">
+                          <children>
+                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="lobby__option--text" text="Ki 2" wrappingWidth="80.0"/>
+                            <Slider fx:id="ai2" blockIncrement="1.0" majorTickUnit="1.0" max="4.0"
+                              min="1.0" minorTickCount="0" prefHeight="33.0" prefWidth="374.0"
+                              snapToTicks="true" value="1.0"/>
+                          </children>
+                        </HBox>
+                        <HBox fx:id="hbox3" alignment="CENTER" layoutX="10.0" layoutY="112.0"
+                          prefHeight="1.0" prefWidth="374.0" spacing="20.0">
+                          <children>
+                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="lobby__option--text" text="Ki 3" wrappingWidth="80.0"/>
+                            <Slider fx:id="ai3" blockIncrement="1.0" majorTickUnit="1.0" max="4.0"
+                              min="1.0" minorTickCount="0" prefHeight="33.0" prefWidth="374.0"
+                              snapToTicks="true" value="1.0"/>
+                          </children>
+                        </HBox>
+                        <HBox fx:id="hbox4" alignment="CENTER" layoutX="10.0" layoutY="147.0"
+                          prefHeight="1.0" prefWidth="486.0" spacing="20.0">
+                          <children>
+                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="lobby__option--text" text="Ki 4" wrappingWidth="80.0"/>
+                            <Slider fx:id="ai4" blockIncrement="1.0" majorTickUnit="1.0" max="4.0"
+                              min="1.0" minorTickCount="0" prefHeight="33.0" prefWidth="374.0"
+                              snapToTicks="true" value="1.0"/>
+                          </children>
+                        </HBox>
+                        <HBox fx:id="hbox5" alignment="CENTER" layoutX="10.0" layoutY="147.0"
+                          prefHeight="1.0" prefWidth="486.0" spacing="20.0">
+                          <children>
+                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="lobby__option--text" text="Ki 5" wrappingWidth="80.0"/>
+                            <Slider fx:id="ai5" blockIncrement="1.0" majorTickUnit="1.0" max="4.0"
+                              min="1.0" minorTickCount="0" prefHeight="33.0" prefWidth="374.0"
+                              snapToTicks="true" value="1.0"/>
+                          </children>
+                        </HBox>
+                        <HBox fx:id="hbox6" alignment="CENTER" layoutX="10.0" layoutY="217.0"
+                          prefHeight="1.0" prefWidth="486.0" spacing="20.0">
+                          <children>
+                            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0"
+                              styleClass="lobby__option--text" text="Ki 6" wrappingWidth="80.0"/>
+                            <Slider fx:id="ai6" blockIncrement="1.0" majorTickUnit="1.0" max="4.0"
+                              min="1.0" minorTickCount="0" prefHeight="33.0" prefWidth="374.0"
+                              snapToTicks="true" value="1.0"/>
+                          </children>
+                        </HBox>
+                      </children>
+                    </VBox>
+                  </children>
+                  <stylesheets>
+                    <URL value="@../../css/LobbyView.css"/>
+                  </stylesheets>
+                </AnchorPane>
+              </children>
+            </HBox>
+          </children>
+        </VBox>
+      </children>
+    </AnchorPane>
+    <AnchorPane fx:id="mapPreviewPane" prefHeight="200.0" prefWidth="200.0"
+      stylesheets="@../../css/clientPane.css" visible="false" AnchorPane.bottomAnchor="0.0"
+      AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="711.0" prefWidth="1292.0"
+          styleClass="background" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0"
+          AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+          <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="711.0" spacing="30.0">
+              <children>
+                <VBox prefHeight="860.0" prefWidth="762.0">
+                  <children>
+                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity"
+                      prefHeight="70.0" prefWidth="935.0" spacing="100.0">
+                      <children>
+                        <Button fx:id="rotateMapUpLeft" mnemonicParsing="false"
+                          onAction="#onRotateMapUpLeft" prefHeight="24.0" prefWidth="150.0"
+                          styleClass="button--direction" text="Drehen" visible="false"/>
+                        <Button fx:id="rotateMapUpRight" mnemonicParsing="false"
+                          onAction="#onRotateMapUpRight" prefHeight="24.0" prefWidth="150.0"
+                          styleClass="button--direction" text="Drehen" visible="false"/>
+                      </children>
+                    </HBox>
+                    <GridPane fx:id="gridMapSelect" maxHeight="1.7976931348623157E308"
+                      prefHeight="571.0" prefWidth="609.0" styleClass="image-view-wrapper">
+                      <children>
+                        <ImageView fx:id="planUpLeft" fitHeight="50.0" fitWidth="50.0"
+                          onDragDetected="#onDragDetectedMap" onDragDropped="#onDragDroppedMap"
+                          onDragOver="#onDragOverMap" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@../../textures/floorplans/empty.jpeg"/>
+                          </image>
+                        </ImageView>
+                        <ImageView fx:id="planUpRight" fitHeight="50.0" fitWidth="50.0"
+                          onDragDetected="#onDragDetectedMap" onDragDropped="#onDragDroppedMap"
+                          onDragOver="#onDragOverMap" pickOnBounds="true" preserveRatio="true"
+                          GridPane.columnIndex="1">
+                          <image>
+                            <Image url="@../../textures/floorplans/empty.jpeg"/>
+                          </image>
+                        </ImageView>
+                        <ImageView fx:id="planDownLeft" fitHeight="50.0" fitWidth="50.0"
+                          onDragDetected="#onDragDetectedMap" onDragDropped="#onDragDroppedMap"
+                          onDragOver="#onDragOverMap" pickOnBounds="true" preserveRatio="true"
+                          GridPane.rowIndex="1">
+                          <image>
+                            <Image url="@../../textures/floorplans/empty.jpeg"/>
+                          </image>
+                        </ImageView>
+                        <ImageView fx:id="planDownRight" fitHeight="50.0" fitWidth="50.0"
+                          onDragDetected="#onDragDetectedMap" onDragDropped="#onDragDroppedMap"
+                          onDragOver="#onDragOverMap" pickOnBounds="true" preserveRatio="true"
+                          GridPane.columnIndex="1" GridPane.rowIndex="1">
+                          <image>
+                            <Image url="@../../textures/floorplans/empty.jpeg"/>
+                          </image>
+                        </ImageView>
+                        <StackPane fx:id="stackPaneCheckpoint" disable="true" visible="false">
+                          <children>
+                            <GridPane fx:id="gridPaneCheckpoint">
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                              </rowConstraints>
+                            </GridPane>
+                          </children>
+                        </StackPane>
+                        <StackPane fx:id="stackPaneCheckpoint1" disable="true" visible="false"
+                          GridPane.columnIndex="1">
+                          <children>
+                            <GridPane fx:id="gridPaneCheckpoint1">
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                              </rowConstraints>
+                            </GridPane>
+                          </children>
+                        </StackPane>
+                        <StackPane fx:id="stackPaneCheckpoint2" disable="true" visible="false"
+                          GridPane.rowIndex="1">
+                          <children>
+                            <GridPane fx:id="gridPaneCheckpoint2">
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                              </rowConstraints>
+                            </GridPane>
+                          </children>
+                        </StackPane>
+                        <StackPane fx:id="stackPaneCheckpoint3" disable="true" visible="false"
+                          GridPane.columnIndex="1" GridPane.rowIndex="1">
+                          <children>
+                            <GridPane fx:id="gridPaneCheckpoint3">
+                              <columnConstraints>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                              </columnConstraints>
+                              <rowConstraints>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                                <RowConstraints vgrow="ALWAYS"/>
+                              </rowConstraints>
+                            </GridPane>
+                          </children>
+                        </StackPane>
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints halignment="CENTER"/>
+                        <ColumnConstraints halignment="CENTER"/>
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints valignment="CENTER"/>
+                        <RowConstraints valignment="CENTER"/>
+                      </rowConstraints>
+                    </GridPane>
+                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity"
+                      prefHeight="70.0" prefWidth="200.0" spacing="100.0">
+                      <children>
+                        <Button fx:id="rotateMapDownLeft" mnemonicParsing="false"
+                          onAction="#onRotateMapDownLeft" prefHeight="24.0" prefWidth="150.0"
+                          styleClass="button--direction" text="Drehen" visible="false"/>
+                        <Button fx:id="rotateMapDownRight" mnemonicParsing="false"
+                          onAction="#onRotateMapDownRight" prefHeight="24.0" prefWidth="150.0"
+                          styleClass="button--direction" text="Drehen" visible="false"/>
+                      </children>
+                    </HBox>
+                  </children>
+                </VBox>
+                <VBox alignment="TOP_CENTER" prefHeight="711.0" prefWidth="262.0">
+                  <children>
+                    <ScrollPane fx:id="scrollPaneMaps" maxWidth="-Infinity" minWidth="-Infinity"
+                      prefWidth="230.0" visible="false" VBox.vgrow="ALWAYS">
+                      <content>
+                        <GridPane fx:id="gridMapDepot" prefHeight="200.0">
+                          <columnConstraints>
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"
+                              maxWidth="200.0" minWidth="20.0" prefWidth="200.0"/>
+                          </columnConstraints>
+                        </GridPane>
+                      </content>
+                    </ScrollPane>
+                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                      <VBox.margin>
+                        <Insets bottom="10.0" top="10.0"/>
+                      </VBox.margin>
+                      <children>
+                        <Button mnemonicParsing="false" onAction="#onDiscardMapChange"
+                          prefHeight="47.0" prefWidth="133.0" styleClass="button--close"
+                          text="Zurück"/>
+                        <Button fx:id="btnConfirmMap" mnemonicParsing="false"
+                          onAction="#onConfirmMapChange" prefHeight="47.0" prefWidth="175.0"
+                          styleClass="button--submit" text="Bestätigen" visible="false"/>
+                      </children>
+                    </HBox>
+                  </children>
+                </VBox>
+                <VBox fx:id="checkpointSelection" minWidth="-Infinity" prefHeight="711.0"
+                  prefWidth="170.0" spacing="20.0" visible="false">
+                  <children>
+                    <Button id="cp-active" fx:id="btnCheckpoint1" minWidth="-Infinity"
+                      mnemonicParsing="false" onAction="#onCheckpoint1" prefHeight="41.0"
+                      prefWidth="150.0" styleClass="button--direction" text="Checkpoint 1"/>
+                    <Button fx:id="btnCheckpoint2" mnemonicParsing="false" onAction="#onCheckpoint2"
+                      prefHeight="41.0" prefWidth="150.0" styleClass="button--direction"
+                      text="Checkpoint 2"/>
+                    <Button fx:id="btnCheckpoint3" mnemonicParsing="false" onAction="#onCheckpoint3"
+                      prefHeight="41.0" prefWidth="150.0" styleClass="button--direction"
+                      text="Checkpoint 3"/>
+                    <Button fx:id="btnCheckpoint4" mnemonicParsing="false" onAction="#onCheckpoint4"
+                      prefHeight="41.0" prefWidth="150.0" styleClass="button--direction"
+                      text="Checkpoint 4"/>
+                    <Button fx:id="btnCheckpoint5" mnemonicParsing="false" onAction="#onCheckpoint5"
+                      prefHeight="41.0" prefWidth="150.0" styleClass="button--direction"
+                      text="Checkpoint 5"/>
+                    <Button fx:id="btnCheckpoint6" mnemonicParsing="false" onAction="#onCheckpoint6"
+                      prefHeight="41.0" prefWidth="150.0" styleClass="button--direction"
+                      text="Checkpoint 6"/>
+                    <Button fx:id="btnCheckpointDelete" layoutX="10.0" layoutY="376.0"
+                      mnemonicParsing="false" onAction="#onCheckpointDelete" prefHeight="41.0"
+                      prefWidth="150.0" styleClass="button--direction" text="Entfernen"/>
+                  </children>
+                </VBox>
+              </children>
+            </HBox>
+            <Button fx:id="btnSwitchMode" layoutX="1236.0" layoutY="2.0" mnemonicParsing="false"
+              onAction="#onSwitchMode" styleClass="button--switch" text="Checkpoint Bearbeiten"
+              AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
+            <Button fx:id="btnHelpCheckpoints" layoutX="1242.0" layoutY="8.0"
+              mnemonicParsing="false" onAction="#onCheckpointHelpPress" styleClass="button--help"
+              text="?" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0"/>
+          </children>
+        </AnchorPane>
+      </children>
+    </AnchorPane>
+  </AnchorPane>
+</Tab>

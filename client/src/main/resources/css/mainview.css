@@ -1,0 +1,112 @@
+/*Background*/
+.main__option--gridpane {
+  -fx-background-image: url("../images/backgrounds/background.png");
+  -fx-background-size: 100px;
+  -fx-background-repeat: repeat;
+}
+
+.main__image--avatar {
+  -fx-background-color: rgba(220, 220, 220, 0.44);
+  -fx-border-width: 3px;
+  -fx-border-color: #3D2314, #AA7E51;
+  -fx-border-style: solid inside, solid outside;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.7, 0.0, 0.0);
+}
+
+/*Buttons*/
+.main__option--button:hover, .main__button--logout:hover, .main__button--cancel:hover {
+  -fx-background-color: derive(#7E7E7E, -20%);
+}
+
+.main__option--button, .main__button--logout, .main__button--cancel {
+  -fx-font-weight: bold;
+  -fx-font-size: 18px;
+  -fx-background-color: #737373;
+  -fx-text-fill: #FFFFFF;
+  -fx-background-insets: 0;
+  -fx-border-width: 3px;
+  -fx-border-color: white;
+  -fx-border-radius: 0;
+  -fx-effect: dropshadow(gaussian, #70523C, 15, 0.7, 0.0, 0.0);
+}
+
+.main__button--cancel, .main__button--logout {
+  -fx-font-size: 14px;
+}
+
+.main__button--send {
+  -fx-background-color: #737373;
+  -fx-font-weight: bold;
+  -fx-font-size: 16px;
+  -fx-text-fill: #FFFFFF;
+  -fx-border-width: 3px;
+  -fx-border-color: #FFFB54;
+  -fx-border-radius: 0;
+  -fx-background-insets: 2;
+}
+
+.main__button--send:hover {
+  -fx-background-color: derive(#737373, -20%);
+}
+
+.main__option--text {
+  -fx-text-fill: #FFFFFF;
+  -fx-font-size: 20pt;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0.7, 0.0, 0.0);
+}
+
+.text-field {
+  -fx-background-color: #737373;
+  -fx-border-width: 3px;
+  -fx-border-radius: 0px;
+  -fx-border-color: #FFFB54;
+  -fx-text-fill: white;
+  -fx-font-size: 15px;
+}
+
+/*ListView Properties*/
+.list-cell:even {
+  -fx-background-color: #8a8a8a;
+  -fx-text-fill: #000000;
+}
+
+.list-cell:odd {
+  -fx-background-color: #e8e8e8;
+  -fx-text-fill: #000000;
+}
+
+.lobby__listview--player, .lobby__listview--chat {
+  -fx-background-color: #c7c7c7;
+  -fx-text-fill: white;
+  -fx-border-color: rgba(0, 0, 0, 0.9), rgba(255, 251, 84, 0.9);
+  -fx-border-width: 5;
+  -fx-border-style: solid inside, segments(20, 20, 20, 20);
+}
+
+.lobby__listview--chat > .text {
+  -fx-font-size: 14px;
+}
+
+.lobby__listview--player {
+  -fx-font-size: 18px;
+}
+
+.slider .track {
+  -fx-control-inner-background: #787878;
+  -fx-border-radius: 5px;
+  -fx-border-color: black;
+}
+
+.slider .axis {
+  -fx-tick-label-fill: white;
+  -fx-tick-label-font-size: 18px;
+  -fx-tick-label-font-weight: bold;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0.7, 0.0, 0.0);
+}
+
+.slider .thumb {
+  -fx-background-color: #787878;
+  -fx-border-color: black;
+  -fx-border-width: 2px;
+  -fx-border-radius: 8px;
+}

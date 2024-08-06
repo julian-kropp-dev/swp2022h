@@ -1,0 +1,17 @@
+de/uol/swp/server/usermanagement/UserManagementTest.class
+de/uol/swp/server/chat/CommandRegisterTest.class
+de/uol/swp/server/lobby/LobbyServiceTest.class
+de/uol/swp/server/game/GameLogicServiceTest.class
+de/uol/swp/server/lobby/LobbyManagementTest.class
+de/uol/swp/server/chat/ChatServiceTest$1.class
+de/uol/swp/server/usermanagement/store/MainMemoryBasedUserStoreTest.class
+de/uol/swp/server/chat/ChatServiceTest.class
+de/uol/swp/server/game/GameLogicTest.class
+de/uol/swp/server/usermanagement/AuthenticationServiceTest.class
+de/uol/swp/server/game/GameManagementTest.class
+de/uol/swp/server/game/GameServiceTest.class
+de/uol/swp/server/usermanagement/store/MySQLUserStoreTest.class
+de/uol/swp/server/game/GameTimerServiceTest.class
+de/uol/swp/server/usermanagement/UserServiceTest.class
+de/uol/swp/server/lobby/generator/TestNameGenerator.class
+de/uol/swp/server/game/GameCardValidationTest.class

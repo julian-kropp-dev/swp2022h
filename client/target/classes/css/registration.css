@@ -1,0 +1,52 @@
+/*Background*/
+.registration__option--gridpane {
+  -fx-background-image: url("../images/backgrounds/background_login.png");
+  -fx-background-size: cover;
+}
+
+.registration__option--anchor {
+  -fx-background-image: url("../images/backgrounds/background_start.png");
+  -fx-background-size: cover;
+}
+
+.registration__label--headline, .registration__option--label, .registration__label--gamename {
+  -fx-text-fill: #ffffff;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0.7, 0.0, 0.0);
+}
+
+.registration__label--headline {
+  -fx-font-size: 24px;
+}
+
+.registration__option--label {
+  -fx-font-size: 18px;
+}
+
+.registration__label--gamename {
+  -fx-font-size: 60px;
+}
+
+.registration__option--field {
+  -fx-background-color: #FFFFFF;
+  -fx-border-radius: 0;
+}
+
+.registration__button--register, .registration__button--exit {
+  -fx-font-weight: bold;
+  -fx-font-size: 14px;
+  -fx-border-color: #ffffff;
+  -fx-background-color: #737373;
+  -fx-text-fill: #FFFFFF;
+  -fx-background-insets: 0;
+  -fx-border-width: 3px;
+  -fx-border-radius: 0;
+}
+
+.registration__button--exit {
+  -fx-border-color: #c90000;
+}
+
+.registration__button--register:hover, .registration__button--exit:hover {
+  -fx-background-color: derive(#7E7E7E, -20%);
+}
+

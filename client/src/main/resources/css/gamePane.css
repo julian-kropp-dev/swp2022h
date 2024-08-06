@@ -1,0 +1,136 @@
+.gamePane__cardSelect__vpane--option {
+  -fx-background-color: #B7B8B5;
+  -fx-border-color: #FFFB54;
+  -fx-border-width: 5px;
+  -fx-border-insets: -1;
+}
+
+.gamePane__cardSelect__label--option {
+  -fx-font-size: 20px;
+  -fx-text-fill: white;
+}
+
+.gamePane__cardSelect__button--option {
+  -fx-background-color: #FC4241;
+  -fx-font-size: 14px;
+  -fx-text-fill: white;
+  -fx-border-color: #FFFB54;
+  -fx-border-width: 5px;
+  -fx-border-insets: -1;
+}
+
+#gamePane__cardSelect__button--ready {
+  -fx-background-color: #67B245;
+}
+
+.gamePane__background--option {
+  -fx-background-image: url("../images/backgrounds/background.png");
+  -fx-background-size: 100px;
+  -fx-background-repeat: repeat;
+}
+
+.gamePane__hBox--option {
+  -fx-background-color: rgba(176, 176, 176, 0.51);
+}
+
+.gamePane__chatbutton--option {
+  -fx-background-color: rgba(176, 176, 176, 0.51);
+  -fx-font-size: 14px;
+  -fx-text-fill: white;
+  -fx-border-color: #FFFB54;
+  -fx-border-width: 5px;
+  -fx-border-insets: -1;
+}
+
+.gamePane__button--option {
+  -fx-background-color: #B7B8B5;
+  -fx-font-size: 14px;
+  -fx-text-fill: white;
+  -fx-border-color: #FFFB54;
+  -fx-border-width: 5px;
+  -fx-border-insets: -1;
+}
+
+.gamePane__button--exit {
+  -fx-background-color: rgba(255, 11, 11, 0.74);
+  -fx-font-size: 14px;
+  -fx-text-fill: white;
+  -fx-border-color: #FFFB54;
+  -fx-border-width: 5px;
+  -fx-border-insets: -1;
+}
+
+.gamePane__text--option {
+  -fx-text-fill: #FFFFFF;
+  -fx-font-size: 12pt;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0.7, 0.0, 0.0);
+}
+
+.gamePane__button--send {
+  -fx-background-color: #737373;
+  -fx-font-weight: bold;
+  -fx-font-size: 14px;
+  -fx-text-fill: #FFFFFF;
+  -fx-border-width: 3px;
+  -fx-border-color: #FFFB54;
+  -fx-border-radius: 0;
+  -fx-background-insets: 2;
+}
+
+.gamePane__button--send:hover {
+  -fx-background-color: derive(#737373, -20%);
+}
+
+.text-field {
+  -fx-background-color: #737373;
+  -fx-border-width: 3px;
+  -fx-border-radius: 0px;
+  -fx-border-color: #FFFB54;
+  -fx-text-fill: white;
+  -fx-font-size: 13px;
+}
+
+/*ListView Properties*/
+.list-cell:even {
+  -fx-background-color: #8a8a8a;
+  -fx-text-fill: #000000;
+}
+
+.list-cell:odd {
+  -fx-background-color: #e8e8e8;
+  -fx-text-fill: #000000;
+}
+
+.gamePane__listview--chat {
+  -fx-background-color: #c7c7c7;
+  -fx-text-fill: white;
+  -fx-border-color: rgba(0, 0, 0, 0.9), rgba(255, 251, 84, 0.9);
+  -fx-border-width: 5;
+}
+
+.gamePane__listview--chat > .text {
+  -fx-font-size: 14px;
+}
+
+.gamePane--checkbox .box {
+  -fx-background-color: #dfdfdf;
+  -fx-border-color: #FFFFFF;
+  -fx-border-width: 3px;
+  -fx-border-radius: 2;
+  -fx-scale-x: 1.5;
+  -fx-scale-y: 1.5;
+}
+
+.gamePane--checkbox:selected .box {
+  -fx-background-color: #dfdfdf;
+  -fx-border-color: white;
+  -fx-border-width: 3px;
+  -fx-border-radius: 2;
+}
+
+.gamePane--checkbox:selected .mark {
+  -fx-background-color: #00b93e;
+  -fx-shape: "M14.596,2.055L12.455,0C9.687,2.884,6.011,6.714,5.158,7.602L2.055,4.624L0,6.765l5.242,5.037l0.003-0.004l0.003,0.004L14.596,2.055z";
+  -fx-scale-x: 1.5;
+  -fx-scale-y: 1.5;
+}

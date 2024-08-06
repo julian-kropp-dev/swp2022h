@@ -1,0 +1,48 @@
+/*Background*/
+.login__option--gridpane {
+  -fx-background-image: url("../images/backgrounds/background_login.png");
+  -fx-background-size: cover;
+}
+
+.login__option--anchor {
+  -fx-background-image: url("../images/backgrounds/background_start.png");
+  -fx-background-size: cover;
+}
+
+.login__label--headline, .login__option--label, .login__label--gamename {
+  -fx-text-fill: #ffffff;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0.7, 0.0, 0.0);
+}
+
+.login__label--headline {
+  -fx-font-size: 24px;
+}
+
+.login__option--label {
+  -fx-font-size: 18px;
+}
+
+.login__label--gamename {
+  -fx-font-size: 60px;
+}
+
+.login__option--field {
+  -fx-background-color: #FFFFFF;
+  -fx-border-radius: 0;
+}
+
+.login__button--login, .login__button--registration {
+  -fx-font-weight: bold;
+  -fx-font-size: 14px;
+  -fx-border-color: #ffffff;
+  -fx-background-color: #737373;
+  -fx-text-fill: #FFFFFF;
+  -fx-background-insets: 0;
+  -fx-border-width: 3px;
+  -fx-border-radius: 0;
+}
+
+.login__button--login:hover, .login__button--registration:hover {
+  -fx-background-color: derive(#7E7E7E, -20%);
+}
+

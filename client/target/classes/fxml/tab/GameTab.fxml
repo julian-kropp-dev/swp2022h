@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.CheckBox?>
+<Tab xmlns:fx="http://javafx.com/fxml/1" onCloseRequest="#onCloseRequest" onClosed="#onClose"
+  xmlns="http://javafx.com/javafx/17" fx:controller="de.uol.swp.client.game.GamePresenter"
+  fx:id="gameTab">
+  <AnchorPane layoutX="-14.0" layoutY="4.0" styleClass="gamePane__background--option" stylesheets="@../../css/gamePane.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <BorderPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
+      <bottom>
+        <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="48.0" styleClass="gamePane__hBox--option" BorderPane.alignment="CENTER">
+          <children>
+            <Button mnemonicParsing="false" onAction="#onLeave" styleClass="gamePane__button--exit" text="Spiel verlassen" />
+            <Text fx:id="gamePhase" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="gamePane__text--option" text="Spielphase" textAlignment="CENTER" wrappingWidth="174.21710205078125" />
+            <Text fx:id="countdown" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="gamePane__text--option" text="Timer" textAlignment="CENTER" wrappingWidth="200.0" />
+            <CheckBox fx:id="robotShutdown" mnemonicParsing="false" styleClass="gamePane--checkbox" textFill="WHITE" visible="false" />
+            <Text fx:id="txtShutOff" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="gamePane__text--option" text="Roboter Abschalten" visible="false">
+              <HBox.margin>
+                <Insets left="15.0" />
+              </HBox.margin>
+            </Text>
+            <Button fx:id="btnNextRound" mnemonicParsing="false" onAction="#nextRoundStartRequest" styleClass="gamePane__button--option" text="Bereit für nächste Runde" visible="false" />
+            <Button fx:id="btnForceNextRound" layoutY="40.0" mnemonicParsing="false" onAction="#nextRoundStartForceRequest" styleClass="gamePane__button--option" text="Spiel starten" visible="false" />
+          </children>
+        </HBox>
+      </bottom>
+      <center>
+        <AnchorPane BorderPane.alignment="CENTER">
+          <StackPane prefHeight="700.0" prefWidth="961.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+
+              <GridPane fx:id="floorField">
+                <!-- GameField -->
+              </GridPane>
+
+              <Pane fx:id="checkpointsPane">
+                <!-- CheckPoints -->
+              </Pane>
+
+              <Pane fx:id="robotField">
+                <!-- AssetsField -->
+              </Pane>
+            </children>
+          </StackPane>
+
+        </AnchorPane>
+      </center>
+      <right>
+        <VBox fx:id="vBoxShowRobotInfos" BorderPane.alignment="CENTER" />
+      </right>
+    </BorderPane>
+    <AnchorPane fx:id="gameCardPane" layoutX="745.0" layoutY="10.0" prefHeight="360.0" prefWidth="761.0" visible="false" AnchorPane.rightAnchor="-708.0" AnchorPane.topAnchor="10.0">
+      <children>
+        <Button fx:id="btnCloseCardSelect" layoutX="-9.0" layoutY="154.0" mnemonicParsing="false" onAction="#onCloseCardSelect" prefHeight="38.4" prefWidth="94.4" rotate="-90.0" styleClass="gamePane__cardSelect__button--option" text="Karten" />
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="gamePane__cardSelect__vpane--option" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+            <GridPane fx:id="gridCardDepot">
+              <columnConstraints>
+                <ColumnConstraints hgrow="NEVER" minWidth="70.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="NEVER" minWidth="70.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="NEVER" minWidth="70.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="125.0" prefHeight="125.0" vgrow="NEVER" />
+              </rowConstraints>
+              <children>
+                <ImageView fx:id="imgCardDepot1" fitHeight="120.0" fitWidth="77.0" onDragDetected="#onDragDetectedCard" onDragDropped="#onDragDroppedView" onDragOver="#onDragOverView" pickOnBounds="true" preserveRatio="true" />
+                <ImageView fx:id="imgCardDepot2" fitHeight="120.0" fitWidth="77.0" onDragDetected="#onDragDetectedCard" onDragDropped="#onDragDroppedView" onDragOver="#onDragOverView" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                <ImageView fx:id="imgCardDepot3" fitHeight="120.0" fitWidth="77.0" onDragDetected="#onDragDetectedCard" onDragDropped="#onDragDroppedView" onDragOver="#onDragOverView" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+                <ImageView fx:id="imgCardDepot4" fitHeight="120.0" fitWidth="77.0" onDragDetected="#onDragDetectedCard" onDragDropped="#onDragDroppedView" onDragOver="#onDragOverView" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+                <ImageView fx:id="imgCardDepot5" fitHeight="120.0" fitWidth="77.0" onDragDetected="#onDragDetectedCard" onDragDropped="#onDragDroppedView" onDragOver="#onDragOverView" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
+                <ImageView fx:id="imgCardDepot6" fitHeight="120.0" fitWidth="77.0" onDragDetected="#onDragDetectedCard" onDragDropped="#onDragDroppedView" onDragOver="#onDragOverView" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" />
+                <ImageView fx:id="imgCardDepot7" fitHeight="120.0" fitWidth="77.0" onDragDetected="#onDragDetectedCard" onDragDropped="#onDragDroppedView" onDragOver="#onDragOverView" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" />
+                <ImageView fx:id="imgCardDepot8" fitHeight="120.0" fitWidth="77.0" onDragDetected="#onDragDetectedCard" onDragDropped="#onDragDroppedView" onDragOver="#onDragOverView" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" />
+                <ImageView fx:id="imgCardDepot9" fitHeight="120.0" fitWidth="77.0" onDragDetected="#onDragDetectedCard" onDragDropped="#onDragDroppedView" onDragOver="#onDragOverView" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" />
+              </children>
+              <VBox.margin>
+                <Insets left="5.0" right="5.0" />
+              </VBox.margin>
+            </GridPane>
+            <HBox alignment="CENTER">
+              <children>
+                <GridPane fx:id="gridCardSelect">
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" prefWidth="137.0" />
+                    <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" prefWidth="137.0" />
+                    <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" prefWidth="137.0" />
+                    <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" prefWidth="137.0" />
+                    <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" prefWidth="137.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints maxHeight="225" minHeight="50.0" prefHeight="50.0" vgrow="NEVER" />
+                    <RowConstraints maxHeight="225" minHeight="175.0" prefHeight="186" vgrow="NEVER" />
+                  </rowConstraints>
+                  <children>
+                    <ImageView fx:id="imgCardSelect5" fitHeight="175.0" fitWidth="119.0" onDragDetected="#onDragDetectedCard" onDragDropped="#onDragDroppedView" onDragOver="#onDragOverView" onMouseClicked="#onMouseClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                      <GridPane.margin>
+                        <Insets left="9.0" right="9.0" />
+                      </GridPane.margin>
+                    </ImageView>
+                    <ImageView fx:id="imgCardSelect1" fitHeight="175.0" fitWidth="119.0" onDragDetected="#onDragDetectedCard" onDragDropped="#onDragDroppedView" onDragOver="#onDragOverView" onMouseClicked="#onMouseClick" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                      <GridPane.margin>
+                        <Insets left="9.0" right="9.0" />
+                      </GridPane.margin>
+                    </ImageView>
+                    <ImageView fx:id="imgCardSelect4" fitHeight="175.0" fitWidth="119.0" onDragDetected="#onDragDetectedCard" onDragDropped="#onDragDroppedView" onDragOver="#onDragOverView" onMouseClicked="#onMouseClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                      <GridPane.margin>
+                        <Insets left="9.0" right="9.0" />
+                      </GridPane.margin>
+                    </ImageView>
+                    <ImageView fx:id="imgCardSelect3" fitHeight="175.0" fitWidth="119.0" onDragDetected="#onDragDetectedCard" onDragDropped="#onDragDroppedView" onDragOver="#onDragOverView" onMouseClicked="#onMouseClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                      <GridPane.margin>
+                        <Insets left="9.0" right="9.0" />
+                      </GridPane.margin>
+                    </ImageView>
+                    <ImageView fx:id="imgCardSelect2" fitHeight="175.0" fitWidth="119.0" onDragDetected="#onDragDetectedCard" onDragDropped="#onDragDroppedView" onDragOver="#onDragOverView" onMouseClicked="#onMouseClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                      <GridPane.margin>
+                        <Insets left="9.0" right="9.0" />
+                      </GridPane.margin>
+                    </ImageView>
+                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                      <children>
+                        <Label contentDisplay="CENTER" styleClass="gamePane__cardSelect__label--option" text="1">
+                          <graphic>
+                            <Circle fill="#1f93ff00" radius="24.0" stroke="#fffb54" strokeType="INSIDE" strokeWidth="5.0" />
+                          </graphic>
+                        </Label>
+                      </children>
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                      <children>
+                        <Label contentDisplay="CENTER" styleClass="gamePane__cardSelect__label--option" text="2">
+                          <graphic>
+                            <Circle fill="#1f93ff00" radius="24.0" stroke="#fffb54" strokeType="INSIDE" strokeWidth="5.0" />
+                          </graphic>
+                        </Label>
+                      </children>
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4">
+                      <children>
+                        <Label contentDisplay="CENTER" styleClass="gamePane__cardSelect__label--option" text="5">
+                          <graphic>
+                            <Circle fill="#1f93ff00" radius="24.0" stroke="#fffb54" strokeType="INSIDE" strokeWidth="5.0" />
+                          </graphic>
+                        </Label>
+                      </children>
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3">
+                      <children>
+                        <Label contentDisplay="CENTER" styleClass="gamePane__cardSelect__label--option" text="4">
+                          <graphic>
+                            <Circle fill="#1f93ff00" radius="24.0" stroke="#fffb54" strokeType="INSIDE" strokeWidth="5.0" />
+                          </graphic>
+                        </Label>
+                      </children>
+                    </HBox>
+                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
+                      <children>
+                        <Label contentDisplay="CENTER" styleClass="gamePane__cardSelect__label--option" text="3">
+                          <graphic>
+                            <Circle fill="#1f93ff00" radius="24.0" stroke="#fffb54" strokeType="INSIDE" strokeWidth="5.0" />
+                          </graphic>
+                        </Label>
+                      </children>
+                    </HBox>
+                  </children>
+                </GridPane>
+              </children>
+            </HBox>
+          </children>
+        </VBox>
+      </children>
+    </AnchorPane>
+    <AnchorPane fx:id="gameChatPane" layoutX="167.0" layoutY="246.0" prefHeight="262.0" prefWidth="305.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="-303.0">
+      <Button layoutX="261.0" layoutY="209.0" mnemonicParsing="false" onAction="#onSend" styleClass="gamePane__button--send" text="Senden" />
+      <Button fx:id="closeChatButton" layoutX="-45.0" layoutY="93.0" mnemonicParsing="false" onAction="#onChatClose" prefHeight="38.0" prefWidth="109.0" rotate="-90.0" styleClass="gamePane__chatbutton--option" text="Schließen" />
+      <ListView fx:id="gameChat" layoutX="27.0" onMouseEntered="#onMouseEnteredTarget" onMouseExited="#onMouseExitTarget" prefHeight="200.0" prefWidth="310.0" styleClass="gamePane__listview--chat" />
+      <TextField fx:id="messageFieldGame" layoutX="18.0" layoutY="209.0" onAction="#onEnter" prefHeight="33.0" prefWidth="240.0" promptText="Nachricht" AnchorPane.rightAnchor="79.0" />
+    </AnchorPane>
+    <Button fx:id="openChatButton" layoutX="1466.0" layoutY="695.0" mnemonicParsing="false" onAction="#onChatOpen" prefHeight="38.0" prefWidth="109.0" rotate="-90.0" styleClass="gamePane__chatbutton--option" text="Chat" AnchorPane.bottomAnchor="131.0" AnchorPane.rightAnchor="-39.0" />
+    <Button fx:id="btnOpenCardSelect" layoutX="737.6" layoutY="166.0" mnemonicParsing="false" onAction="#onOpenCardSelect" prefHeight="38.0" prefWidth="94.0" rotate="-90.0" styleClass="gamePane__cardSelect__button--option" text="Karten" AnchorPane.rightAnchor="-32.0" AnchorPane.topAnchor="164.0" />
+
+    <AnchorPane fx:id="robotRespawnPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@../../css/LobbyView.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+            <VBox alignment="CENTER">
+              <children>
+                <AnchorPane prefHeight="450.0" prefWidth="856.0" styleClass="lobby__image--plate">
+                  <children>
+                    <StackPane>
+                      <children>
+                        <GridPane fx:id="respawnFieldGridPane">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" />
+                            <ColumnConstraints hgrow="SOMETIMES" />
+                            <ColumnConstraints hgrow="SOMETIMES" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints vgrow="SOMETIMES" />
+                            <RowConstraints vgrow="SOMETIMES" />
+                            <RowConstraints vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                        <GridPane fx:id="respawnButtonsGridPane">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                      </children>
+                    </StackPane>
+                    <Button layoutX="479.0" layoutY="51.0" mnemonicParsing="false" onAction="#robotOnLeftRotation" prefHeight="41.0" prefWidth="166.0" styleClass="lobby__button--send" text="Links Drehen" />
+                    <Button layoutX="660.0" layoutY="51.0" mnemonicParsing="false" onAction="#robotOnRightRotation" prefHeight="41.0" prefWidth="174.0" styleClass="lobby__button--send" text="Rechts Drehen" />
+                    <Button layoutX="570.0" layoutY="315.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#onSendRobotSelection" prefHeight="41.0" prefWidth="216.0" styleClass="lobby__button--send" text="Respawn senden" />
+                    <Text fx:id="txtRespawnTimer" layoutX="592.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="137.0" />
+                  </children>
+                </AnchorPane>
+              </children>
+            </VBox>
+          </children>
+        </HBox>
+      </children>
+    </AnchorPane>
+  </AnchorPane>
+</Tab>

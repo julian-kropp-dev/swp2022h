@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <CLIENTS USERID='1' USERNAME='Test0' PASSWORD='test0' MAIL='test0@swp2022h.de' AVATARID='1'/>
+  <CLIENTS USERID='1' USERNAME='Manuel' PASSWORD='test1' MAIL='test1@swp2022h.de' AVATARID='2'/>
+  <CLIENTS USERID='3' USERNAME='Test2' PASSWORD='test2' MAIL='test2@swp2022h.de' AVATARID='3'/>
+</dataset>

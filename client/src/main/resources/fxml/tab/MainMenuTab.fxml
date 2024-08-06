@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Slider?>
+<Tab closable="false" text="Menu" xmlns="http://javafx.com/javafx/17"
+  xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.uol.swp.client.main.MainMenuPresenter">
+  <GridPane styleClass="main__option--gridpane" stylesheets="@../../css/mainview.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="10.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="280.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="60.0" />
+      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="320.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="10.0" />
+    </columnConstraints>
+    <rowConstraints>
+      <RowConstraints minHeight="-Infinity" prefHeight="10.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="-Infinity" prefHeight="150.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="-Infinity" prefHeight="150.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="-Infinity" prefHeight="100.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="20.0" prefHeight="40.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="2" GridPane.rowSpan="2">
+        <children>
+          <ListView fx:id="globalChat" onMouseEntered="#onMouseEnteredTarget" onMouseExited="#onMouseExitTarget" styleClass="lobby__listview--chat">
+            <VBox.margin>
+              <Insets />
+            </VBox.margin></ListView>
+          <HBox>
+            <children>
+              <TextField fx:id="messageField" onAction="#onEnter" prefHeight="43.0" prefWidth="1230.0" promptText=" Nachricht" />
+              <Button minWidth="100.0" mnemonicParsing="false" onAction="#onSend" prefHeight="43.0" styleClass="main__button--send" text="Senden" />
+            </children>
+            <VBox.margin>
+              <Insets top="10.0" />
+            </VBox.margin>
+          </HBox>
+        </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2">
+        <children>
+          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main__option--text" text="Spieler Online" textAlignment="CENTER" />
+          <ListView fx:id="usersView" styleClass="lobby__listview--player" />
+        </children>
+      </VBox>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+        <left>
+          <VBox alignment="CENTER_LEFT" spacing="20.0" BorderPane.alignment="CENTER_RIGHT">
+            <children>
+              <Button minWidth="180.0" mnemonicParsing="false" onAction="#onInstructionPress" styleClass="main__option--button" text="Spielanleitung" />
+              <Button mnemonicParsing="false" onAction="#onMyProfile" styleClass="main__option--button" text="Mein Profil" />
+            </children>
+          </VBox>
+        </left>
+        <right>
+          <AnchorPane maxHeight="139.0" maxWidth="182.0" minHeight="139.0" minWidth="182.0" prefHeight="139.0" prefWidth="182.0" styleClass="main__image--avatar" BorderPane.alignment="CENTER">
+            <children>
+              <ImageView fx:id="avatar" fitHeight="139.0" fitWidth="182.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                  <Image url="@../../images/avatar/8.png" />
+                </image>
+              </ImageView>
+            </children>
+          </AnchorPane>
+        </right>
+      </BorderPane>
+      <FlowPane alignment="BASELINE_CENTER" columnHalignment="CENTER" hgap="5.0" vgap="20.0" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BASELINE">
+        <children>
+          <Button minHeight="30.0" minWidth="200.0" mnemonicParsing="false" onAction="#onCreateLobbyView" styleClass="main__option--button" text="Lobby Erstellen" wrapText="true">
+            <FlowPane.margin>
+              <Insets />
+            </FlowPane.margin>
+          </Button>
+          <Button minHeight="30.0" minWidth="200.0" mnemonicParsing="false" onAction="#onJoinLobby" styleClass="main__option--button" text="Lobby Beitreten" wrapText="true">
+            <FlowPane.margin>
+              <Insets />
+            </FlowPane.margin>
+          </Button>
+        </children>
+        <GridPane.margin>
+          <Insets top="20.0" />
+        </GridPane.margin>
+      </FlowPane>
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+        <children>
+          <Button minWidth="110.0" mnemonicParsing="false" onAction="#onUserLogout" styleClass="main__button--logout" text="Abmelden" />
+          <Button minWidth="145.0" mnemonicParsing="false" onAction="#onExit" styleClass="main__button--cancel" text="Spiel Beenden" />
+        </children>
+      </HBox>
+      <VBox alignment="CENTER" maxWidth="250.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+        <children>
+          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main__option--text" text="Lautstärke" textAlignment="CENTER" />
+          <Slider onMouseReleased="#onVolume" fx:id="sliderMusic" blockIncrement="1.0" value="20.0" />
+        </children>
+      </VBox>
+    </children>
+  </GridPane>
+
+  </Tab>
